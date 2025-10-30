@@ -1,5 +1,11 @@
 {
-"rewrites": [
-    {"source": "/(.*)", "destination": "/"}
-]
+    "builds": [{
+        "src": "./rost/core/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.13.7" }
+    }]
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "./rost/core/wsgi.py"
+    }]
 }
